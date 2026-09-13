@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>dark.parskalas.com — FULL LOAD Gallery</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--dark:#0A0A0A;--card:#1F2329;--line:#2A2F36;--gold:#B59A62;--wine:#8C2F39}
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma;background:var(--dark);color:#fff}
+header{padding:20px;max-width:1400px;margin:0 auto}
+h1{color:var(--gold);font-size:18px}
+.tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
+.tabs button{background:var(--card);border:1px solid var(--line);color:#fff;padding:10px 18px;border-radius:22px;cursor:pointer}
+.tabs button.on{background:var(--wine)}
+.grid{max-width:1400px;margin:0 auto;padding:0 20px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.card img{width:100%;display:block;background:#fff}
+.cap{padding:10px 12px;font-size:12px;display:flex;justify-content:space-between}
+.badge{font-size:10px;background:#15181c;border:1px solid var(--line);padding:2px 8px;border-radius:10px}
+</style>
+</head>
+<body>
+<header>
+<h1>dark.parskalas.com — FULL LOAD (65 صفحه × دسکتاپ + موبایل) — لود 100%</h1>
+<div class="tabs">
+<button class="on" id="btnD" onclick="setType('desktop')">دسکتاپ 1920px</button>
+<button id="btnM" onclick="setType('mobile')">موبایل 390px</button>
+</div>
+</header>
+<div id="grid" class="grid"></div>
+<script>
+const slugs=[
+"home","shop","cart","my-account","checkout","faq","conact","track-your-order","search","برگه-نمونه",
+"category_تحریریه","category_مد-روز","brand_ایسوس","brand_هیسکا",
+"2024_12_19_روش-طلایی-برای-استایل-کردن-کت-و-مانتو-ی-س","2024_12_19_راز-زیبایی-کُره_ایها-که-باید-بدانی","2024_12_19_راهنمای-کامل-ست-کردن-پیراهن-فلانل-در-اس","2024_12_19_انواع-کفش-جیر-را-چگونه-باید-تمیز-کنیم؟",
+"product-category_پوشاک","product-category_کفش","product-category_مردانه","product-category_کیف","product-category_زنانه","product-category_کفش-زنانه","product-category_ژاکت-مردانه","product-category_کیف-زنانه","product-category_کیف_کیف-مردانه","product-category_کالای-دیجیتال","product-category_کالای-دیجیتال_لپ-تاپ","product-category_کالای-دیجیتال_لپ-تاپ_لپ-تاپ-و-الترابوک","product-category_کالای-دیجیتال_هدفون،-هدست-و-هندزفری",
+"product_کوله-پشتی-مدل-bj-sport","product_کوله-پشتی-مدل-north-face","product_کفش-اسپورت-nike","product_کفش-چرم-مردانه","product_کفش-چرم-مدل-501","product_ژاکت-زنانه-مدل-503","product_کت-زنانه-مدل-30132","product_کاپشن-مردانه-north-face","product_پیراهن-مردانه-مدل-c001","product_کت-مشکی-زنانه-مدل-n81","product_کت-مردانه-مدل-k710","product_کاپشن-مردانه-زرد-lng-1012","product_کت-مردانه-چرم-vx2061","product_کاپشن-مردانه-c900","product_دورس-یقه-نیم-زیپ","product_کفش-مجلسی-zara-k9003","product_کیف-زنانه-قرمز-c1007","product_شلوار-مام-فیت-gray","product_پیراهن-مردانه-مدل-puma","product_کاپشن-برند-مراکش-f91","product_کت-چرم-مدل-5003","product_کیف-زنانه-m520","product_کیف-اسپورت-5001","product_کیف-زنانه-مدل-e500","product_کیف-زنانه-مدل-ep006","product_کیف-زنانه-مدل-zc0012","product_کیف-ورزشی-مدل-r12s","product_کوله-پشتی-آبی-مدل-l901","product_کفش-آدیداس-مشکی","product_کفش-آدیداس-sneakers","product_کفش-نایکی-جردن","product_کفش-نایکی-جردن-black","product_لپ-تاپ-18-اینچی-ایسوس-مدل-rog-strix-g18-g815lm-core-ultra-9-275hx-rtx5060-8gb-32gb-ddr5-1tb-ssd-wqxga-","product_هدست-مخصوص-بازی-هیسکا-مدل-ghr-07"
+];
+let cur='desktop';
+function setType(t){cur=t;document.getElementById('btnD').classList.toggle('on',t==='desktop');document.getElementById('btnM').classList.toggle('on',t==='mobile');render();}
+function render(){
+ const g=document.getElementById('grid');
+ g.innerHTML=slugs.map(s=>`<div class="card"><a href="${cur}/${s}.png" target="_blank"><img loading="lazy" src="${cur}/${s}.png"></a><div class="cap"><span>${s}</span><span class="badge">${cur}</span></div></div>`).join('');
+}
+render();
+</script>
+</body>
+</html>
