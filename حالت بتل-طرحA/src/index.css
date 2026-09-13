@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --color-base-950: #0b0b11;
+  --color-base-900: #101016;
+  --color-base-850: #14141c;
+  --color-base-800: #1a1a24;
+  --color-base-750: #20202c;
+  --color-base-700: #2a2a38;
+  --color-brand-500: #ef394e;
+  --color-brand-600: #d92d42;
+  --color-amber-glow: #ffab00;
+}
+
+html {
+  font-family: "Vazirmatn", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0b0b11;
+  color: #f1f1f5;
+  font-family: "Vazirmatn", sans-serif;
+  overflow-x: hidden;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar { width: 9px; height: 8px; }
+::-webkit-scrollbar-track { background: #101016; }
+::-webkit-scrollbar-thumb { background: #2d2d3d; border-radius: 99px; border: 2px solid #101016; }
+::-webkit-scrollbar-thumb:hover { background: #ef394e; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.hero-dot { transition: all .35s cubic-bezier(.4,0,.2,1); }
+.hero-dot.active { width: 28px; }
+
+@keyframes float-slow {
+  0%,100% { transform: translateY(0) }
+  50% { transform: translateY(-12px) }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(239,57,78,.45) }
+  70% { box-shadow: 0 0 0 12px rgba(239,57,78,0) }
+  100% { box-shadow: 0 0 0 0 rgba(239,57,78,0) }
+}
+@keyframes marquee {
+  from { transform: translateX(0) }
+  to { transform: translateX(50%) }
+}
+@keyframes ticker-up {
+  0% { transform: translateY(12px); opacity: 0 }
+  100% { transform: translateY(0); opacity: 1 }
+}
+@keyframes pop-in {
+  0% { transform: scale(.92) translateY(10px); opacity: 0 }
+  100% { transform: scale(1) translateY(0); opacity: 1 }
+}
+.animate-pop-in { animation: pop-in .35s cubic-bezier(.21,1.02,.73,1) both; }
+.animate-ticker { animation: ticker-up .4s ease both; }
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255,255,255,.22);
+  color: transparent;
+}
+
+.glass {
+  background: rgba(26,26,36,.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.card-shine { position: relative; overflow: hidden; }
+.card-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.08) 50%, transparent 60%);
+  transform: translateX(-150%);
+  transition: transform .8s;
+  pointer-events: none;
+}
+.card-shine:hover::after { transform: translateX(150%); }
+
+input::placeholder { color: #6b6b7e; }

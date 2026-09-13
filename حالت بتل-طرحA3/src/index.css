@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Lalezar", "Vazirmatn", sans-serif;
+
+  --color-ink: #0d1015;
+  --color-coal: #131820;
+  --color-raise: #1a212c;
+  --color-hover: #222c39;
+  --color-line: #273140;
+  --color-snow: #eef1f6;
+  --color-mute: #94a0b4;
+  --color-faint: #66738b;
+  --color-ember: #ef3b52;
+  --color-emberdeep: #c22038;
+  --color-gold: #f6b03a;
+  --color-jade: #31c496;
+
+  --shadow-glow: 0 8px 30px rgb(239 59 82 / 0.28);
+  --shadow-card: 0 10px 30px rgb(0 0 0 / 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-snow);
+  font-family: var(--font-sans);
+  background-image:
+    radial-gradient(1100px 420px at 88% -140px, rgb(239 59 82 / 0.08), transparent 62%),
+    radial-gradient(900px 380px at 6% 30%, rgb(246 176 58 / 0.045), transparent 60%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: #fff;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2c3747 #10151d;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #10151d;
+}
+::-webkit-scrollbar-thumb {
+  background: #2c3747;
+  border-radius: 8px;
+  border: 2px solid #10151d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b4a5f;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgb(239 59 82 / 0.6);
+  outline-offset: 2px;
+}
+
+/* ---------- animations ---------- */
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.anim-marquee {
+  animation: marquee 36s linear infinite;
+}
+.marquee-wrap:hover .anim-marquee {
+  animation-play-state: paused;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.anim-pop {
+  animation: popIn 0.35s ease-out both;
+}
+
+@keyframes toastIn {
+  from {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.anim-toast {
+  animation: toastIn 0.3s ease-out both;
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.anim-fadeUp {
+  animation: fadeUp 0.5s ease-out both;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-3px);
+  }
+  40%,
+  60% {
+    transform: translateX(3px);
+  }
+}
+.anim-shake {
+  animation: shake 0.5s both;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1) rotate(-2deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.14) rotate(2deg);
+    opacity: 0.85;
+  }
+}
+.anim-flicker {
+  animation: flicker 1.6s ease-in-out infinite;
+  transform-origin: 50% 90%;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.anim-floaty {
+  animation: floaty 5.5s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(239 59 82 / 0.55);
+  }
+  60% {
+    box-shadow: 0 0 0 7px rgb(239 59 82 / 0);
+  }
+}
+.anim-pulseDot {
+  animation: pulseDot 1.8s ease-out infinite;
+}
+
+@keyframes drawerSlide {
+  from {
+    transform: translateX(-105%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.anim-drawer {
+  animation: drawerSlide 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes modalIn {
+  from {
+    transform: translateY(22px) scale(0.97);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+.anim-modal {
+  animation: modalIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.anim-overlay {
+  animation: overlayIn 0.25s ease-out both;
+}
